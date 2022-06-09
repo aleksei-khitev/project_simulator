@@ -1,3 +1,9 @@
+"""
+This file is part of Project Simulator.
+Project Simulator is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Project Simulator is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+"""
 from config import *
 
 
@@ -27,17 +33,17 @@ class Team():
     def __init_working_with_feature_team_cost(self):
         self.working_with_feature_team_salary = sum([self.team_salaries_per_minute[role]
                                                      for role
-                                                     in WORKING_WITH_FEATURE_INVOLMENT_ROLES])
+                                                     in PROFIT_ACTIVITIES["Feature"]["roles"]])
 
     def __init_defect_fixing_team_cost(self):
         self.defect_fixing_team_salary = sum([self.team_salaries_per_minute[role]
                                               for role
-                                              in DEFECT_FIXING_INVOLMENT_ROLES])
+                                              in PROFIT_ACTIVITIES["Defect Fixing"]["roles"]])
 
     def __init_technical_depth_fixing_team_cost(self):
         self.technical_depth_fixing_team_salary = sum([self.team_salaries_per_minute[role]
                                                        for role
-                                                       in TECHNICAL_DEPTH_FIXING_INVOLMENT_ROLES])
+                                                       in PROFIT_ACTIVITIES["Technical Depth Fixing"]["roles"]])
 
     def __init_regular_meetings_involvement_team_cost(self):
         for name, details in REGULAR_MEETINGS.items():

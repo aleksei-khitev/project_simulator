@@ -1,3 +1,9 @@
+"""
+This file is part of Project Simulator.
+Project Simulator is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Project Simulator is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+"""
 from config import *
 
 FORMAT = "{:,}"
@@ -6,10 +12,10 @@ def total_formula(simulation_results):
     result = ""
     for name,details in simulation_results.items():
         result += f"**{name}**<br/>"
-        result += f"$$\n{FORMAT.format(details['average data']['total time spent on working with feature'] / (60 * 8))}*R_{{f/d}} " \
-               f"+ {FORMAT.format(details['average data']['total time spent on defect fixing'] / (60 * 8))}*R_{{df/d}} " \
-               f"+ {FORMAT.format(details['average data']['total time spent on technical depth fixing'] / (60 * 8))}*P_{{tdf/d}} " \
-                f"- {FORMAT.format(details['average data']['total cost'])} - C_{{others}}\n$$<br/>"
+        result += f"$$\n{FORMAT.format(round(details['average data']['total time spent on working with feature'] / (60 * 8), 2))}*R_{{f/d}} " \
+               f"+ {FORMAT.format(round(details['average data']['total time spent on defect fixing'] / (60 * 8), 2))}*R_{{df/d}} " \
+               f"+ {FORMAT.format(round(details['average data']['total time spent on technical depth fixing'] / (60 * 8), 2))}*P_{{tdf/d}} " \
+                f"- {FORMAT.format(round(details['average data']['total cost']), 2)} - C_{{others}}\n$$<br/>"
     return result
 
 

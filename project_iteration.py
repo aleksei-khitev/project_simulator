@@ -1,3 +1,9 @@
+"""
+This file is part of Project Simulator.
+Project Simulator is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Project Simulator is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+"""
 from config import *
 import random
 
@@ -52,13 +58,13 @@ class ProjectIteration():
 		return ITERATION_IN_MINUTES - self.time_spent_on_non_profit_activities()
 
 	def time_spent_on_working_with_feature(self):
-		return self.time_spent_on_profit_activities() * PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Feature']
+		return self.time_spent_on_profit_activities() * PROFIT_ACTIVITIES['Feature']['quota']
 
 	def time_spent_on_defect_fixing(self):
-		return self.time_spent_on_profit_activities() * PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Defect Fixing']
+		return self.time_spent_on_profit_activities() * PROFIT_ACTIVITIES['Defect Fixing']['quota']
 
 	def time_spent_on_technical_depth_fixing(self):
-		return self.time_spent_on_profit_activities() * PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Technical Depth Fixing']
+		return self.time_spent_on_profit_activities() * PROFIT_ACTIVITIES['Technical Depth Fixing']['quota']
 
 	def salary_spent_on_non_profit_activities(self):
 		return self.salary_spent_on_meetings + self.salary_spent_on_troubleshooting + self.salary_spent_on_release

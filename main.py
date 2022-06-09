@@ -1,3 +1,9 @@
+"""
+This file is part of Project Simulator.
+Project Simulator is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Project Simulator is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+"""
 from team import Team
 from project import Project
 from report import prepare_report
@@ -81,8 +87,8 @@ simulation_results['Base Example'] = {
 
 # With IT Org
 REGULAR_MEETINGS["daily"]["time"] = 15
-PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Feature'] = 0.6
-PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Defect Fixing'] = 0.3
+PROFIT_ACTIVITIES['Feature']['quota'] = 0.6
+PROFIT_ACTIVITIES['Defect Fixing']['quota'] = 0.3
 average_data, average_troubles = launch_simulations(simulation_count)
 simulation_results['With IT Org'] = {
     "average data": average_data,
@@ -91,8 +97,8 @@ simulation_results['With IT Org'] = {
 
 # With Monitoring
 REGULAR_MEETINGS["daily"]["time"] = 25
-PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Feature'] = 0.4
-PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Defect Fixing'] = 0.5
+PROFIT_ACTIVITIES['Feature']['quota'] = 0.4
+PROFIT_ACTIVITIES['Defect Fixing']['quota'] = 0.5
 TROUBLES["Service errors because of lack of server's disk space"]["probability"] = -1
 TROUBLES["Error because of some service down in the chain of invocations"]["time to find out root cause"]["time"] = 0
 TROUBLES["Error because of some service down in the chain of invocations"]["time to recover"]["roles"] = [SYSTEM_ENGINEER, QA_ENGINEER]
@@ -104,8 +110,8 @@ simulation_results['With Monitoring'] = {
 
 # All Improvements
 REGULAR_MEETINGS["daily"]["time"] = 15
-PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Feature'] = 0.6
-PROFIT_ACTIVITIES_AT_ITERATION_QUOTAS['Defect Fixing'] = 0.3
+PROFIT_ACTIVITIES['Feature']['quota'] = 0.6
+PROFIT_ACTIVITIES['Defect Fixing']['quota'] = 0.3
 TROUBLES["Service errors because of lack of server's disk space"]["probability"] = -1
 TROUBLES["Error because of some service down in the chain of invocations"]["time to find out root cause"]["time"] = 0
 TROUBLES["Error because of some service down in the chain of invocations"]["time to recover"]["roles"] = [SYSTEM_ENGINEER, QA_ENGINEER]
@@ -116,6 +122,6 @@ simulation_results['All Improvements'] = {
 }
 
 report = prepare_report(simulation_results, simulation_count)
-f = open("report.md", "w")
+f = open("generated_reports/report.md", "w")
 f.write(report)
 f.close()
