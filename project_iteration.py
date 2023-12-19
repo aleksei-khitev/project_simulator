@@ -25,6 +25,7 @@ class ProjectIteration():
 	def __play_meetings(self):
 		for name, details in REGULAR_MEETINGS.items():
 			if self.iteration_number > 0 and self.iteration_number % details["cadence"] == 0:
+				print(name)
 				self.salary_spent_on_meetings += self.team.regular_meetings_involvement_team_salary[name]
 				self.meetings_at_iteretion.append(name)
 				self.time_spent_on_meetings += details["time"]

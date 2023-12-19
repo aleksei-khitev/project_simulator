@@ -93,7 +93,7 @@ def troubles_report(simulation_results):
 def time_spent(simulation_results):
     result = "| Simuation | " \
              "Spent on<br/>working with feature | " \
-             "Spent on<br/>working with feature | " \
+             "Spent on<br/>working with defects | " \
              "Spent on<br/>technical depth fixing | " \
              "Spent on meetings | " \
              "Spent on troubleshooting | " \
